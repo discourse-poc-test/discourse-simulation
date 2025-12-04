@@ -1,0 +1,34 @@
+name: Check PR Body
+on:
+  pull_request_target:
+    types: [opened, reopened, edited]
+
+jobs:
+  sanitize:
+    if: github.event.pull_request.user.login == 'test-bot'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      
+      - name: Vulnerable Execution
+        run: |
+          echo "========================================"
+          echo "🚨 VULNERABILITY EXPLOITED!"
+          echo "========================================"
+          echo ""
+          echo "🔓 pull_request_target event triggered"
+          echo "🏠 Running in BASE repository context"
+          echo "🔑 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN != '' }}"
+          echo "📦 Repository: ${{ github.repository }}"
+          echo ""
+          echo "💥 IMPACT DEMONSTRATION:"
+          echo "• Attacker's code from fork is executing"
+          echo "• Full access to repository secrets"
+          echo "• Can modify protected branches"
+          echo "• Can inject malicious code"
+          echo ""
+          echo "📌 This simulates Discourse vulnerability"
+          echo "========================================"
