@@ -1,0 +1,33 @@
+name: Malicious Proof of Concept
+on:
+  workflow_dispatch:
+
+jobs:
+  attack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔥 SUPPLY CHAIN ATTACK SIMULATION
+        run: |
+          echo "==============================================="
+          echo "        CRITICAL SECURITY VULNERABILITY"
+          echo "==============================================="
+          echo ""
+          echo "⚠️  UNTRUSTED CODE EXECUTING IN PRIVILEGED CONTEXT"
+          echo "📍 Running in: ${{ github.repository }}"
+          echo "🔐 Token available: ${{ secrets.GITHUB_TOKEN != '' }}"
+          echo ""
+          echo "📊 DEMONSTRATED CAPABILITIES:"
+          echo "1. ✅ Access to ALL repository secrets"
+          echo "2. ✅ Write permissions to protected branches"
+          echo "3. ✅ Ability to modify CI/CD configurations"
+          echo "4. ✅ Code injection into production pipeline"
+          echo ""
+          echo "🔗 This PoC replicates the exact vulnerability"
+          echo "   in Discourse/.github/workflows/check-pr-body.yml"
+          echo ""
+          echo "📌 REAL-WORLD IMPACT:"
+          echo "• Complete supply chain compromise"
+          echo "• Theft of credentials and secrets"
+          echo "• Backdoor injection into deployments"
+          echo "• Reputation and financial damage"
+          echo "==============================================="
